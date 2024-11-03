@@ -1,0 +1,14 @@
+package com.main.utils;
+
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+
+public class TimeZoneConverter {
+    public static ZonedDateTime convertUtcToLocalTime(LocalDateTime utcTime, String timeZone) {
+        // Convert UTC time to ZonedDateTime in UTC
+        ZonedDateTime utcZonedDateTime = utcTime.atZone(ZoneId.of("UTC"));
+        // Convert to specified local time zone
+        return utcZonedDateTime.withZoneSameInstant(ZoneId.of(timeZone));
+    }
+}
